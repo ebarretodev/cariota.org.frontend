@@ -6,8 +6,8 @@ const App = ()=>{
     <div className="App">
       <header className="App-header" >
         <h1>Welcome to CarIOTA simulator</h1>
-        <p>Soon enough you will be able to access and drive a Car using Wallet on simulator.</p>
-        Feito por Danilo Keiiti
+        <p>Soon you'll drive a virtual connected car empowered by IOTA</p>
+        <img className="App-logo" src="/images/iota_logo.png" alt="" />
       </header>
     </div>
   )
