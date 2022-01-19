@@ -7,7 +7,7 @@ const App = ()=>{
       <header className="App-header" >
         <h1>Welcome to CarIOTA</h1>
         <p>Soon you'll drive a virtual connected car empowered by IOTA</p>
-        <img className="App-logo" src="/images/cariota_logo.png" alt="" />
+        <img className="App-logo" src="/images/cariota_logo_curva.svg" alt="" />
       </header>
     </div>
   )
