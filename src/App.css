@@ -1,38 +1,357 @@
-.App {
-  text-align: center;
+/*General*/
+body {
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-fluid {
+  margin: 0 auto;
+  max-width: 1170px;
+  padding: 0 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.ant-layout {
+  background: #fff !important;
+}
+
+.mainLayout .ant-layout-header {
+  background: #ffffff;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.bg-555555{
+  background-color: #555555;
+  padding: 20px 0;
+}
+
+.bg-FFFFFF{
+  background-color: #FFFFFF;
+  padding: 20px 0;
+}
+
+.bg-43B9AA{
+  background-color: #43B9AA;
+  padding: 20px 0;
+}
+
+.line-555555{
+  background-color: #555555;
+  width: 270px;
+  height: 8px;
+}
+
+.line-43B9AA{
+  background-color: #43B9AA;
+  width: 270px;
+  height: 8px;
+}
+ /*header*/
+
+  .header {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
   }
+
+  /* ant menu */
+  .header .ant-menu {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    background: none !important;
+  }
+
+  .header .ant-menu li.ant-menu-item-selected,
+  .header .ant-menu li.ant-menu-item:hover {
+    color: #43B9AA;
+    background: none;
+  }
+
+  .header .ant-menu li.ant-menu-item:before,
+  .header .ant-menu li.ant-menu-item:after {
+    content: '';
+    background: #43B9AA;
+    width: 1px;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 30%;
+    opacity: 0;
+    transition: all 0.3s linear;
+  }
+
+  .header .bt-login {
+    background-color: #43B9AA;
+    margin-left: 10px;
+    border: none;
+  }
+
+  .header .menu{
+    display: flex;
+    align-items: center;
+  }
+
+  /*Hero*/
+  .heroBlock {
+    background: url('./assets/images/Hero.svg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+
+    font-family: Roboto;
+    font-size: 34px;
+    font-weight: 200;
+  }
+
+  .heroBlock h1{
+    font-family: Roboto;
+    font-size: 68px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+  }
+
+  .heroBlock p{
+    margin: 0;
+    margin-top: -30px;
+    padding: 0;
+  }
+
+  .heroBlock .bt-hero{
+    background-color: #43B9AA;
+    border: none;
+    border-radius: 11px;
+
+    font-family: Roboto;
+    font-size: 34px;
+    font-weight: 200;
+
+    height: fit-content;
+
+    margin-top: 30px;
+  }
+
+  /*Who we are*/
+.whoweare {
+  display: flex;
+  justify-content: space-between;
+}
+.about-left{
+  width: 45%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.whoweare img {
+  width: 45%;
+}
+
+/*ourgoal*/
+.goal-images{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.goal-image{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 45%;
+
+  font-size: 14px;
+  text-align: center;
+}
+
+
+.goal-image img{
+  width: 100%;
+}
+
+/*Nutshell*/
+.nutshell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nutshell-text{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.nutshell-text span{
+  margin-top: 15px;
+}
+
+/*Take Owner*/
+.takeowner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.takeowner-text{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.takeowner-text span{
+  margin-top: 15px;
+}
+
+.takeowner-modules {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.takeowner-modules .module{
+  margin: 1% 0;
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.takeowner-modules .square{
+  border-radius: 25px;
+  background-color: #525252;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 15px;
+}
+
+.takeowner-modules .circle{
+  width: 87px;
+  height: 87px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.takeowner-modules .text{
+  padding-left: 15px;
+}
+
+/*Our team*/
+
+.ourteam{
+  display: flex;
+  flex-direction: column;
+}
+.ourteam-text{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.ourteam-text span{
+  margin-top: 15px;
+}
+
+.ourteam .profileCards {
+  display: flex;
+  justify-content: center;
+
+}
+
+.profileCards .card{
+  display: flex;
+  background-color: #525252;
+  border-radius: 25px;
+  height: 380px;
+  width: 300px;
+  flex-direction: column;
+  margin: 30px 15px;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.card-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.265em;
+  color: white;
+  width: min-content;
+}
+
+.card svg{
+  width: 42px;
+  height: 42px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/*Source*/
+
+.source{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.source a{
+  text-decoration: none;
+  color: white;
+  margin: 10px;
 }
+
+.source a:hover{
+  border-bottom: 1px solid white;
+}
+
+  /*Footer*/
+  .footer{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-logo{
+    width: 30%;
+    padding: 0 50px;
+  }
+  .footer-map{
+    width: 30%;
+    padding: 0 50px;
+
+  }
+  .footer-map ul{
+    padding-left: 20px;
+
+  }
+  .footer-map a{
+    color: #43B9AA;
+  }
+  .footer-empty{
+    width: 30%;
+  }
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+}
+
