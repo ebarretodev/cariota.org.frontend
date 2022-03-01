@@ -22,7 +22,7 @@ const AppOurGoal = () => {
                         <Text style={{color: 'white'}}>A paramount component of digital transformation is data ownership - to treat data as a true digital asset, with exchangable financial value in the ecosystem</Text>
                         <Text style={{color: 'white'}}>Here we list some benefits for industry players</Text>
                     </div>
-                    <Row gutter={[24,16]} style={{margin: '30px 0' }} >
+                    <Row gutter={[24,24]}  >
                         { moduleList.map((module)=>
                             <Col md={{span: 8}} sm={{span: 12}}>
                                 <div className="module">

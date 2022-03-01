@@ -15,13 +15,8 @@ const AppWhoWeAre = () => {
                         <Title level={1} style={{color:'#664c4c', marginTop: '20px'}} >Meet CarIOTA</Title>
                         <Text>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</Text>
                     </Col>
-                    <Col
-                        lg={{ span: 12 }}
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'space-around',
-                        }}>
-                        <img src="./assets/images/whoweare.svg" />
+                    <Col lg={{ span: 12 }} style={{width: '100%'}}>
+                        <img style={{width: '100%', alignItems: 'center'}} src="./assets/images/whoweare.svg" />
                     </Col>
                 </Row>
             </div>

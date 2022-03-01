@@ -7,9 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-svg {
-  width: fit-content;
-}
 
 .container-fluid {
   margin: 0 auto;
@@ -117,10 +114,15 @@ svg {
     transition: all 0.3s linear;
   }
 
-.bt-login {
+.bt-login, .bt-login:focus {
     background-color: #43B9AA;
     margin-left: 10px;
     border: none;
+  }
+
+  .bt-login:hover {
+    background-color: #43B9AA;
+    opacity: .7;
   }
 
   .header .menu{
@@ -243,6 +245,7 @@ svg {
 }
 
 .module{
+  margin-top: 30px;
   display: flex;
   align-items: center;
 }
