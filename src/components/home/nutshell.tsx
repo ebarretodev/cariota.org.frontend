@@ -5,7 +5,7 @@ const { Title, Text } = Typography
 
 const AppOurGoal = () => {
     return (
-        <div className="bg-FFFFFF">
+        <div id="nutshell" className="bg-FFFFFF">
             <div className="container-fluid">
                 <div className="nutshell" >
                     <Title level={4} style={{color:'555'}} >So, in nutshell</Title>

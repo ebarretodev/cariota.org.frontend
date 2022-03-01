@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Typography } from 'antd'
-import { Link } from 'react-router-dom'
+import { Typography, Row, Col } from 'antd'
 const { Title, Text } = Typography
 
 const AppOurGoal = () => {
@@ -14,7 +13,7 @@ const AppOurGoal = () => {
     ]
 
     return (
-        <div className="bg-43B9AA">
+        <div id="takeowner" className="bg-43B9AA">
             <div className="container-fluid">
                 <div className="takeowner" >
                     <Title level={4} style={{color:'white'}} >Take ownership of your data</Title>
@@ -23,24 +22,26 @@ const AppOurGoal = () => {
                         <Text style={{color: 'white'}}>A paramount component of digital transformation is data ownership - to treat data as a true digital asset, with exchangable financial value in the ecosystem</Text>
                         <Text style={{color: 'white'}}>Here we list some benefits for industry players</Text>
                     </div>
-                    <div className="takeowner-modules" >
+                    <Row gutter={[24,16]} style={{margin: '30px 0' }} >
                         { moduleList.map((module)=>
-                            <div className="module">
-                                <div className="square" >
-                                    <div className="circle" >
+                            <Col md={{span: 8}} sm={{span: 12}}>
+                                <div className="module">
+                                    <div className="square" >
+                                        <div className="circle" >
+                                            <Title level={4} style={{margin: 0, padding:0 }}>
+                                                {module.id}
+                                            </Title>
+                                        </div>
+                                    </div>
+                                    <div className="text">
                                         <Title level={4} style={{margin: 0, padding:0 }}>
-                                            {module.id}
+                                            {module.text}
                                         </Title>
                                     </div>
                                 </div>
-                                <div className="text">
-                                    <Title level={4} style={{margin: 0, padding:0 }}>
-                                        {module.text}
-                                    </Title>
-                                </div>
-                            </div>
+                            </Col>
                         )}
-                    </div>
+                    </Row>
                 </div>
             </div>
         </div>
