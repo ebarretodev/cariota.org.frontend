@@ -1,8 +1,9 @@
 import React from "react";
-import { Typography, BackTop, Row, Col } from 'antd';
+import { Typography, BackTop, Row, Col, Anchor} from 'antd';
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 
 const { Title } = Typography;
+const { Link } = Anchor;
 
 const AppFooter = () => {
 
@@ -19,14 +20,13 @@ const AppFooter = () => {
                 <Col md={{ span: 8, offset: 1 }}>
                     <div className="footer-map">
                         <Title level={4}>Map List</Title>
-                        <ul>
-                            <li><a>Home</a></li>
-                            <li><a>Who we are</a></li>
-                            <li><a>Our Goal</a></li>
-                            <li><a>Our team</a></li>
-                            <li><a>Source</a></li>
-                        </ul>
-
+                        <Anchor targetOffset={64} affix={false}>
+                            <Link href="#hero" title="Home" />
+                            <Link href="#whoweare" title="Who we are" />
+                            <Link href="#ourgoal" title="Our Goal" />
+                            <Link href="#ourteam" title="Our Team" />
+                            <Link href="#source" title="Source" />
+                        </Anchor>
                     </div>
                 </Col>
                 <Col md={{ span: 8, offset: 1 }}>

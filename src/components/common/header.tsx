@@ -34,7 +34,14 @@ const AppHeader = () => {
                     </Anchor>
                 </div>
                 <div className="mobileVisible">
-                    <Button type="primary" onClick={showDrawer} style={{backgroundColor: '#43B9AA', display: 'flex', alignItems: "center", }}>
+                    <Button
+                        type="primary"
+                        onClick={showDrawer}
+                        style={{
+                            backgroundColor: '#43B9AA',
+                            display: 'flex',
+                            alignItems: "center",
+                            border: 'none'}}>
                         <CgMenu />
                     </Button>
                     <Drawer title="Menu" placement="right" onClose={onClose} visible={visible} width={200}>
