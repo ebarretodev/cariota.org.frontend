@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/cariota.org.frontend/static/css/main.c1294c4b.css",
-    "main.js": "/cariota.org.frontend/static/js/main.627b67fb.js",
+    "main.css": "/cariota.org.frontend/static/css/main.ba3c33ca.css",
+    "main.js": "/cariota.org.frontend/static/js/main.eb3aaec4.js",
     "static/media/Hero.svg": "/cariota.org.frontend/static/media/Hero.c6a2285f40222c8fd412.svg",
     "index.html": "/cariota.org.frontend/index.html",
-    "main.c1294c4b.css.map": "/cariota.org.frontend/static/css/main.c1294c4b.css.map",
-    "main.627b67fb.js.map": "/cariota.org.frontend/static/js/main.627b67fb.js.map"
+    "main.ba3c33ca.css.map": "/cariota.org.frontend/static/css/main.ba3c33ca.css.map",
+    "main.eb3aaec4.js.map": "/cariota.org.frontend/static/js/main.eb3aaec4.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1294c4b.css",
-    "static/js/main.627b67fb.js"
+    "static/css/main.ba3c33ca.css",
+    "static/js/main.eb3aaec4.js"
   ]
 }
