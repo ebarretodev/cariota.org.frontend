@@ -4,8 +4,8 @@ const { Title, Text } = Typography
 
 const AppOurGoal = () => {
     const moduleList = [
-        {id: '01', text: 'Shift from CAPEX to OPEX'},
-        {id: '02', text: 'Tested for new business models'},
+        {id: '01', text: 'Shift from CAPEX to OPEX through subscribing models'},
+        {id: '02', text: 'Test environment for new business models'},
         {id: '03', text: 'Reduce Downtime'},
         {id: '04', text: 'Aid decision-making with realtime'},
         {id: '05', text: 'Bring Sales & Operations closer'},
