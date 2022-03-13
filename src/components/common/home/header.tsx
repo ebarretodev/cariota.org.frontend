@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Anchor, Button, Drawer} from 'antd'
 
 import {CgMenu} from 'react-icons/cg'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const { Link } = Anchor;
 
@@ -17,22 +17,22 @@ const AppHeader = () => {
     };
 
     const handleLogin = () => {
-        navigate('/manual')
+        navigate('/simulator')
     }
     return(
         <div className="container-fluid">
             <div className="header">
                 <div className="logo" >
-                    <img src="./CariotaLogoCorreto.svg" alt="logo cariota"  />
+                    <img src="CariotaLogoCorreto.svg" alt="logo cariota"  />
                 </div>
                 <div className="mobileHidden">
                     <Anchor targetOffset={64} >
                         <div className="menu">
-                            <Link href="/#hero" title="Home" />
-                            <Link href="/#whoweare" title="Who we are" />
-                            <Link href="/#ourgoal" title="Our Goal" />
-                            <Link href="/#ourteam" title="Our Team" />
-                            <Link href="/#source" title="Source" />
+                            <Link href='#hero' title='Home' />
+                            <Link href="#whoweare" title="Who we are" />
+                            <Link href="#ourgoal" title="Our Goal" />
+                            <Link href="#ourteam" title="Our Team" />
+                            <Link href="#source" title="Source" />
                             <Button type="primary" shape="round" className="bt-login" onClick={handleLogin}>
                                 Login
                             </Button>
@@ -52,11 +52,11 @@ const AppHeader = () => {
                     </Button>
                     <Drawer title="Menu" placement="right" onClose={onClose} visible={visible} width={200}>
                     <Anchor targetOffset={64} >
-                        <Link href="#hero" title="Home" />
-                        <Link href="#whoweare" title="Who we are" />
-                        <Link href="#ourgoal" title="Our Goal" />
-                        <Link href="#ourteam" title="Our Team" />
-                        <Link href="#source" title="Source" />
+                        <Link href="/#hero" title="Home" />
+                        <Link href="/#whoweare" title="Who we are" />
+                        <Link href="/#ourgoal" title="Our Goal" />
+                        <Link href="/#ourteam" title="Our Team" />
+                        <Link href="/#source" title="Source" />
                         <Button type="primary" shape="round" className="bt-login">
                             Login
                         </Button>

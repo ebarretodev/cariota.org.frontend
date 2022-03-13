@@ -13,7 +13,7 @@ const AppFooter = () => {
             <Row gutter={[16, 16]}>
                 <Col md={{ span: 8, offset: 1 }}  >
                     <div className="footer-logo">
-                        <img src="./CariotaLogoCorreto.svg" alt="logo cariota"/>
+                        <img src="CariotaLogoCorreto.svg" alt="logo cariota"/>
                         <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
                     </div>
                 </Col>

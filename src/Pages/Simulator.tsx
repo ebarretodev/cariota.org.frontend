@@ -13,6 +13,13 @@ const unityContext = new UnityContext({
 
 const Simulator = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [progression, setProgression] = useState(0);
+
+  useEffect(function () {
+    unityContext.on("progress", function (progression) {
+      setProgression(progression);
+    });
+  }, []);
 
   useEffect(function () {
     unityContext.on("loaded", function () {
@@ -21,7 +28,7 @@ const Simulator = () => {
   }, []);
  return (
    <>
-      <Title level={1} style={{display: isLoaded ? 'none' : 'block'}} >Loading... <LoadingOutlined /> </Title>
+      <Title level={1} style={{display: isLoaded ? 'none' : 'block'}} >Loading {(progression * 100).toFixed(0)}% ... <LoadingOutlined /> </Title>
       <Unity unityContext={unityContext} style={{width: '100%', display: isLoaded ? 'block' : 'none' }} />
    </>
  )
