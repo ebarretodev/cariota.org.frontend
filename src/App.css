@@ -70,7 +70,7 @@ body {
   color: #43B9AA;
 }
 
-.ant-layout-header {
+.homeHeader {
   position: fixed;
   left: 0;
   right: 0;
@@ -384,6 +384,14 @@ body {
   display: none;
 }
 
+/*Internal header*/
+
+.internalHeader{
+  width: 100%;
+  background-color: #555555;
+}
+
+
 @media only screen and (max-width: 767px) {
   .mobileVisible {
     display: block;
@@ -393,3 +401,4 @@ body {
     display: none;
   }
 }
+

@@ -1,51 +1,27 @@
 import React from 'react';
-import 'antd/dist/antd.css'
 import './App.css'
+import './styles/css/antd.css'
 
-import AppHeader from './components/common/header'
-import AppFooter from './components/common/footer'
-import AppSource from './components/home/source'
-import Hero from './components/home/hero'
-import AppWhoWeAre from './components/home/whoweare'
-import AppOurGoal from './components/home/ourgoal'
-import AppNutshell from './components/home/nutshell'
-import AppTakeOwner from './components/home/takeowner'
-import AppOurTeam from './components/home/ourteam'
+import Home from './Pages/Home'
+import Layout from './components/common/internal/Layout'
+import Manual from './Pages/Manual'
+import Simulator from './Pages/Simulator'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import { Layout } from 'antd';
-const { Header, Content, Footer } = Layout;
 
 const App = () => {
   return (
-    <Layout className="mainLayout">
-      <Header >
-        <AppHeader />
-      </Header>
-      <Content>
-        <Hero />
-      </Content>
-      <Content>
-        <AppWhoWeAre />
-      </Content>
-      <Content>
-        <AppOurGoal />
-      </Content>
-      <Content>
-        <AppNutshell />
-      </Content>
-      <Content>
-        <AppTakeOwner />
-      </Content>
-      <Content>
-        <AppOurTeam />
-      </Content>
-      <Content>
-        <AppSource /> 
-      </Content>
-      <Footer>
-        <AppFooter />
-      </Footer>
-  </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route element={<Layout />}>
+          <Route path='manual' element={<Manual />} />
+          <Route path='simulator' element={<Simulator />} />
+        </Route>
+        <Route path='' element={<Navigate to="/" />} />
+        <Route path='*' element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;
