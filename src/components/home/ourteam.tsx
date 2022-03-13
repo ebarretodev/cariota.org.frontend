@@ -22,9 +22,9 @@ const AppWhoWeAre = () => {
                         { team.map((person)=>
                             <Col md={{span: 8}} >
                                     <div className="card">
-                                        <img src={person.img} />
+                                        <img src={person.img} alt={person.name} />
                                         <Text className="card-text" >{person.name} </Text>
-                                        <a href={person.linkedin} target='_blank' >
+                                        <a href={person.linkedin} target='_blank' rel="noreferrer" >
                                             <FaLinkedinIn />
                                         </a>
                                     </div>

@@ -14,11 +14,11 @@ const AppOurGoal = () => {
                         <Text style={{color: 'white'}}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</Text>
                         <Row gutter={[24, 16]}>
                             <Col lg={{span: 12}} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}} >
-                                <img src="./assets/images/GoalLeft.svg" />
+                                <img src="./assets/images/GoalLeft.svg" alt="Goal left" />
                                 <Text style={{color: 'white'}}>...imagine if your car could pay by itaelf its eletric charge, while selling your driving data to the insurance office</Text>
                             </Col>
                             <Col lg={{span: 12}} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}} >
-                                <img src="./assets/images/GoalRight.svg" />
+                                <img src="./assets/images/GoalRight.svg" alt="Goal right" />
                                 <Text style={{color: 'white'}}>...or if your refrigerator could order some milk from the nearby grocery store, while selling your purchase patterns to the dairy industry...</Text>
                             </Col>
                         </Row>

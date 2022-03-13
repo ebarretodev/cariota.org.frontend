@@ -2,8 +2,6 @@ import React from "react";
 import { Typography, Row, Col } from 'antd'
 const { Title, Text} = Typography
 
-const style = {display: 'flex', justifyContent: 'center', alignItems: 'center'}
-
 const AppWhoWeAre = () => {
     return (
         <div id="whoweare" className="bg-FFFFFF">
@@ -16,7 +14,7 @@ const AppWhoWeAre = () => {
                         <Text>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</Text>
                     </Col>
                     <Col lg={{ span: 12 }} style={{width: '100%'}}>
-                        <img style={{width: '100%', alignItems: 'center'}} src="./assets/images/whoweare.svg" />
+                        <img style={{width: '100%', alignItems: 'center'}} src="./assets/images/whoweare.svg" alt="Who we are"/>
                     </Col>
                 </Row>
             </div>

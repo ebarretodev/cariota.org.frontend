@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Typography } from 'antd'
-import { Link } from 'react-router-dom'
+import { Typography } from 'antd'
 const { Title } = Typography
 
 const AppSource = () => {
@@ -10,8 +9,8 @@ const AppSource = () => {
                 <div className="source" >
                     <Title level={4} style={{color:'white'}} >Source</Title>
                     <div className="line-43B9AA"/>
-                    <a href="https://github.com/ebarretodev/cariota.org.backend" target='_blank'>CarIOTA API (Github)</a>
-                    <a href="https://github.com/ebarretodev/cariota.org.simulator" target='_blank'>CarIOTA Simulator (Github)</a>
+                    <a href="https://github.com/ebarretodev/cariota.org.backend" target='_blank' rel="noreferrer">CarIOTA API (Github)</a>
+                    <a href="https://github.com/ebarretodev/cariota.org.simulator" target='_blank' rel="noreferrer">CarIOTA Simulator (Github)</a>
                 </div>
             </div>
         </div>
