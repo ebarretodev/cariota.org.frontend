@@ -25,6 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "changeStyle": "lessc ./src/styles/main.less ./src/styles/css/antd.css --js"
   },
   "eslintConfig": {
