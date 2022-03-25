@@ -24,12 +24,20 @@ const Simulator = () => {
   useEffect(function () {
     unityContext.on("loaded", function () {
       setIsLoaded(true);
+      unityContext.send("GameController", "SpawnEnemies", 100);
     });
   }, []);
+
+  useEffect(function () {
+    unityContext.on("debug", function (message) {
+      console.log(message);
+    });
+  }, []);
+  
  return (
    <>
-      <Title level={1} style={{display: isLoaded ? 'none' : 'block'}} >Loading {(progression * 100).toFixed(0)}% ... <LoadingOutlined /> </Title>
-      <Unity unityContext={unityContext} style={{width: '100%', display: isLoaded ? 'block' : 'none' }} />
+      <Title level={1} style={{display: isLoaded ? 'none' : 'flex', marginTop: '30px' }} >Loading {(progression * 100).toFixed(0)}% ... <LoadingOutlined /> </Title>
+      <Unity unityContext={unityContext} style={{width: '100%', marginTop: '30px', display: isLoaded ? 'flex' : 'none' }} />
    </>
  )
 

@@ -14,9 +14,9 @@ const Hero = () => {
         <div id="hero" className="heroBlock">
             <div className="continer-fluid">
                 <Title level={1}>CarIOTA</Title>
-                <Text>Virtual conected car empowered by IOTA</Text>
+                <Text>is a virtual conected car empowered by IOTA</Text>
                 <br />
-                <Button type="primary" className="bt-hero" onClick={handleLogin}>Meet CarIOTA</Button>
+                <Button type="primary" className="bt-hero" onClick={handleLogin}>Try CarIOTA</Button>
             </div>
         </div>
     )

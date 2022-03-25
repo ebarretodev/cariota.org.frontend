@@ -1,12 +1,14 @@
 import { Typography } from 'antd'
+import { Content } from 'antd/lib/layout/layout'
 
 const {Title} = Typography
 
 type CardProps = {
     title?: string,
-    height?: number,
+    height?: string,
+    width?: string,
+    scroll?: boolean,
     children?: React.ReactNode,
-
 }
 
 const Card = ( props: CardProps ) => {
@@ -17,10 +19,17 @@ const Card = ( props: CardProps ) => {
             marginTop: '30px',
             marginRight: '8px',
             padding: '10px',
+            textAlign: 'center',
             height: props.height,
+            width: props.width,
          }}>
-            <Title level={5} style={{textAlign: 'center'}} >{props.title}</Title>
-            {props.children}
+            <Title level={5} >{props.title}</Title>
+            <div style={{
+                height: '85%',
+                overflowY: props.scroll ? 'scroll' : 'hidden'
+            }}>
+                {props.children}
+            </div>
         </div>
     )
 }

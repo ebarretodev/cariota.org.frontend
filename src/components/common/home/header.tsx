@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Anchor, Button, Drawer} from 'antd'
 
 import {CgMenu} from 'react-icons/cg'
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const { Link } = Anchor;
 

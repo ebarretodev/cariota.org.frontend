@@ -31,12 +31,18 @@ const InternalLayout = () => {
                             }}>
                             <InternalHeader />
                         </Header>
-                        <Content style={{ backgroundColor:'white', borderRadius: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <Content style={{
+                            backgroundColor:'white',
+                            borderRadius: '5px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            flexDirection: 'column'
+                        }}>
                             <Outlet />
                         </Content>
                         </Layout>
                 </Layout>
-                <Footer style={{backgroundColor: 'white'}} >
+                <Footer style={{backgroundColor: 'white', paddingBottom: '10px'}} >
                     <AppFooter />
                 </Footer>
             </Layout>
