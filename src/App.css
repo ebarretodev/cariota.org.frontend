@@ -1,5 +1,8 @@
 /*General*/
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Roboto;
   font-size: 16px;
   line-height: 1.6;
@@ -391,6 +394,24 @@ body {
   background-color: #555555;
 }
 
+
+/*Scroll*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 191, 176, 0.5);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 191, 176, 1);
+}
 
 @media only screen and (max-width: 767px) {
   .mobileVisible {
