@@ -1,3 +1,4 @@
+import { message } from 'antd'
 import { useDispatch } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAppSelector } from '../redux/hooks/useAppSelector'
@@ -10,6 +11,10 @@ const RequireAuth = () => {
     const api = localApi()
     const user = useAppSelector((state)=>state.user)
 
+    if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+        message.error('Application is not supported on mobile devices')
+        return <Navigate to='/' />
+    }
 
     if (token){
         storeToken(token)
