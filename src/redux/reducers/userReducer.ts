@@ -6,7 +6,8 @@ const slice = createSlice({
         username: '',
         email: '',
         address: '',
-        token: ''
+        token: '',
+        type: ''
     },
     reducers: {
         setUsername: (state, action) => {
@@ -20,9 +21,12 @@ const slice = createSlice({
         },
         setToken: (state, action) =>{
             state.token = action.payload
+        },
+        setType: (state, action) =>{
+            state.type = action.payload
         }
     }
 })
 
-export const {setUsername, setEmail, setAddress, setToken} = slice.actions
+export const {setUsername, setEmail, setAddress, setToken, setType} = slice.actions
 export default slice.reducer

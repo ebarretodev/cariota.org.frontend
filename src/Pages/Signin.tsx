@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import localApi, { storeToken } from '../helpers/localApi'
 import { setClearData } from '../redux/reducers/tangleDataReducer'
-import { setAddress, setEmail, setToken, setUsername } from '../redux/reducers/userReducer'
+import { setAddress, setEmail, setToken, setUsername, setType } from '../redux/reducers/userReducer'
 
 const { Content } = Layout
 const { Title } = Typography
@@ -17,11 +17,13 @@ const Signin = () => {
   const handleLogin = (values: any) => {
     api.signin(values)
       .then(res=>{
+          console.log(res.data)
           storeToken(res.data.token)
           dispatch(setUsername(res.data.username))
           dispatch(setToken(res.data.token))
           dispatch(setEmail(res.data.email))
           dispatch(setAddress(res.data.address))
+          dispatch(setType(res.data.type))
           dispatch(setClearData(0))
           navigate('/simulator')
       })

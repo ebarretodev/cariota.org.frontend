@@ -26,6 +26,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        source: "dist/."
+        source: "build/."
         target: "../var/www/cariota.org/html"
         strip_components: 1

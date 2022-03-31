@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import AppFooter from "./footer";
 import InternalHeader from "./header";
@@ -8,6 +7,7 @@ import InternalSider from "./sider";
 const { Header, Content, Footer, Sider } = Layout;
 
 const InternalLayout = () => {
+
 
     return (
         <div className="container-fluid">

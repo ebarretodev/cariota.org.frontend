@@ -23,6 +23,8 @@ const Signup = () => {
           dispatch(setEmail(res.data.email))
           dispatch(setAddress(res.data.address))
           dispatch(setClearData(0))
+          api.requestFaucets()
+          message.success('Congrats, we send a 100 Miotas to your account. Wait for tangle approval!!')
           navigate('/simulator')
       })
       .catch(err=>message.error(err.response.data.error))

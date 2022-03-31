@@ -25,7 +25,6 @@ const InternalSider = () => {
             dispatch(setEmail(userData.email))
             dispatch(setAddress(userData.address))
             dispatch(setToken(userData.token))
-            dispatch(setBalance(await useApi.balance()))
             dispatch(setDetailedTransaction(await useApi.detailedTransactions()))
             setLoading(false)
             setUpdates(updates+1)

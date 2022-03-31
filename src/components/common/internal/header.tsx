@@ -6,7 +6,7 @@ import { getIotaUsd } from '../../../helpers/coins'
 import { useAppSelector } from '../../../redux/hooks/useAppSelector';
 import { setBalance, setDetailedTransaction, setIncoming, setOutgoing, setPrice } from '../../../redux/reducers/tangleDataReducer';
 import { useDispatch } from 'react-redux';
-import { deleteToken } from '../../../helpers/localApi';
+import localApi, { deleteToken } from '../../../helpers/localApi';
 import { setAddress, setEmail, setToken, setUsername } from '../../../redux/reducers/userReducer';
 
 const { Text } = Typography
@@ -15,6 +15,7 @@ const { Text } = Typography
 const AppHeader = () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const useApi = localApi()
     const dispatch = useDispatch()
     const tangleData = useAppSelector((state) => state.tangleData)
     const user = useAppSelector((state)=> state.user)
@@ -25,25 +26,21 @@ const AppHeader = () => {
     useEffect(()=>{
         const checkMarket  = async () => {
             setLoading(true)
+            dispatch(setBalance(await useApi.balance()))
             dispatch(setPrice(await getIotaUsd()))
             setLoading(false)
             setTangleDataUpdates(tangleDataUpdates + 1)
         }
-
         if(tangleDataUpdates === 0){
             checkMarket()
         } else {
             setTimeout(()=>{
                 checkMarket()
-            }, 15000)
+            }, 3000)
         }
     },[ tangleDataUpdates ])
 
     //Check data from user
-
-
-
-
     const content = (
         <div>
             <Text style={{color: 'white'}}>username: {user.username}</Text><br />
@@ -60,6 +57,12 @@ const AppHeader = () => {
         </div>
     )
 
+    useEffect(()=>{
+        if(user.username == "") {
+            handleLogout()
+        }
+    },[])
+
     const handleLogout = () => {
         deleteToken()
         dispatch(setUsername(''))
@@ -70,7 +73,7 @@ const AppHeader = () => {
         dispatch(setIncoming(0))
         dispatch(setOutgoing(0))
         dispatch(setDetailedTransaction([]))
-        navigate('/')
+        navigate('/signin')
     }
 
     const handleInternalScreen = () => {

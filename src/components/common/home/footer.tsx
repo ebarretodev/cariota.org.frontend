@@ -9,7 +9,7 @@ const AppFooter = () => {
 
     return(
         <div className="container-fluid">
-            <div className="footer">
+            {/*<div className="footer">
             <Row gutter={[16, 16]}>
                 <Col md={{ span: 8, offset: 1 }}  >
                     <div className="footer-logo">
@@ -35,7 +35,7 @@ const AppFooter = () => {
                 </Col>
             </Row>
 
-            </div>
+            </div>*/}
             <div className="copyright">
                 <p>Copyright &copy; 2022, CarIOTA</p>
             </div>

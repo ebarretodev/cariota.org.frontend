@@ -12,7 +12,8 @@ export const deleteToken = () => {
 }
 
 export const http = axios.create({
-    baseURL: 'http://localhost:5000/',
+    //baseURL: 'http://localhost:5000/',
+    baseURL: 'https://api.cariota.org/',
   });
 
 export const storeToken = (token: string) => {

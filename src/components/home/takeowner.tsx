@@ -9,7 +9,6 @@ const AppOurGoal = () => {
         {id: '03', text: 'Reduce Downtime'},
         {id: '04', text: 'Aid decision-making with realtime'},
         {id: '05', text: 'Bring Sales & Operations closer'},
-        {id: '06', text: 'New info to update.'},
     ]
 
     return (
