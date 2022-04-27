@@ -43,6 +43,7 @@ const Simulator = () => {
       console.log('Initialized event call')
       unityContext.send("GameConnections", "GetToken", user.token);
       unityContext.send("GameConnections", "GetUsername", user.username);
+      unityContext.send("GameConnections", "GetAddress", user.address);
     })
   },[])
 
