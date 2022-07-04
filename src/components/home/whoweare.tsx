@@ -27,7 +27,7 @@ const AppWhoWeAre = () => {
 							concept. It reduces the cost-intensive struggle of
 							assessing mobility solutions in the real world by
 							taking it to the virtual world as it makes use of
-							the IOTA Tangle technology.
+							the IOTA Tangle technology. 
 						</Text>
 					</Col>
 					<Col lg={{ span: 12 }} style={{ width: '100%' }}>
