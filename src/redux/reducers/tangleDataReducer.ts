@@ -9,11 +9,15 @@ const slice = createSlice({
         outgoing: 0,
         detailedTransactions: [
             {
-                "error": "Message no longer available on Tangle",
-                "timestamp": 0,
-                "amount": 0,
-                "type": 'send',
-                "messageId": '',
+                "approvedTimestamp": 0,
+                "attachedTimestamp": 0,
+                "from": "",
+                'fromId': "",
+                'messageID': "",
+                "text": '',
+                "to": '',
+                "toId": '',
+                "value": 0
             }
         ]
     },
@@ -33,25 +37,8 @@ const slice = createSlice({
         setDetailedTransaction: (state,action) => {
             state.detailedTransactions = action.payload
         },
-        setClearData: (state, action) => {
-            state = {
-                price: 0,
-                balance: 0,
-                incoming: 0,
-                outgoing: 0,
-                detailedTransactions: [
-                    {
-                        "error": "Message no longer available on Tangle",
-                        "timestamp": 0,
-                        "amount": 0,
-                        "type": 'send',
-                        "messageId": '',
-                    }
-                ]
-            }
-        }
     }
 })
 
-export const {setBalance, setIncoming, setOutgoing, setDetailedTransaction, setPrice, setClearData} = slice.actions
+export const {setBalance, setIncoming, setOutgoing, setDetailedTransaction, setPrice} = slice.actions
 export default slice.reducer

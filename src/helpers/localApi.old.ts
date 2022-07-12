@@ -53,7 +53,8 @@ const localApi = {
 
     userInfo: async () => {
         return (await http.get('/user/me')).data.me
-    }
+    },
+    
 }
 
 export default () => localApi

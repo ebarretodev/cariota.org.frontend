@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "cariota"
-  }
+    "default": "cariota-b56d7"
+  },
+  "targets": {}
 }

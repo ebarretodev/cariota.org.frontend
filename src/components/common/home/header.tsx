@@ -17,7 +17,7 @@ const AppHeader = () => {
     };
 
     const handleLogin = () => {
-        navigate('/simulator')
+        navigate('/signin')
     }
     return(
         <div className="container-fluid">

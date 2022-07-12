@@ -7,6 +7,7 @@ const slice = createSlice({
         email: '',
         address: '',
         token: '',
+        photoURL: '',
         type: ''
     },
     reducers: {
@@ -22,11 +23,14 @@ const slice = createSlice({
         setToken: (state, action) =>{
             state.token = action.payload
         },
+        setPhotoURL: (state, action) =>{
+            state.photoURL = action.payload
+        },
         setType: (state, action) =>{
             state.type = action.payload
         }
     }
 })
 
-export const {setUsername, setEmail, setAddress, setToken, setType} = slice.actions
+export const {setUsername, setEmail, setAddress, setToken, setType, setPhotoURL} = slice.actions
 export default slice.reducer

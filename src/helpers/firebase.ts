@@ -1,13 +1,17 @@
-import { initializeApp } from "firebase/app";
+import firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCc-Pg-uFqdx4_ocXyzSuyjZbBniRw6jho",
-  authDomain: "cariota.firebaseapp.com",
-  projectId: "cariota",
-  storageBucket: "cariota.appspot.com",
-  messagingSenderId: "61779796953",
-  appId: "1:61779796953:web:f00a668d471740f60defc8"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_I4D,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
+export const db = firebase.firestore()
+
+export const auth = firebase.auth()

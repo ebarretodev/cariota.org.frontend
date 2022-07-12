@@ -1,13 +1,7 @@
 import { Button, Typography, Tooltip } from 'antd'
-import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
-import { LoadingOutlined } from '@ant-design/icons'
-import { getIotaUsd } from '../../../helpers/coins'
 import { useAppSelector } from '../../../redux/hooks/useAppSelector';
-import { setBalance, setDetailedTransaction, setIncoming, setOutgoing, setPrice } from '../../../redux/reducers/tangleDataReducer';
-import { useDispatch } from 'react-redux';
-import localApi, { deleteToken } from '../../../helpers/localApi';
-import { setAddress, setEmail, setToken, setUsername } from '../../../redux/reducers/userReducer';
+import { auth } from '../../../helpers/firebase';
 
 const { Text } = Typography
 
@@ -15,30 +9,9 @@ const { Text } = Typography
 const AppHeader = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    const useApi = localApi()
-    const dispatch = useDispatch()
     const tangleData = useAppSelector((state) => state.tangleData)
     const user = useAppSelector((state)=> state.user)
-    //check values on Market
-    const [loading, setLoading] = useState(false)
-    const [tangleDataUpdates, setTangleDataUpdates] = useState(0)
 
-    useEffect(()=>{
-        const checkMarket  = async () => {
-            setLoading(true)
-            dispatch(setBalance(await useApi.balance()))
-            dispatch(setPrice(await getIotaUsd()))
-            setLoading(false)
-            setTangleDataUpdates(tangleDataUpdates + 1)
-        }
-        if(tangleDataUpdates === 0){
-            checkMarket()
-        } else {
-            setTimeout(()=>{
-                checkMarket()
-            }, 3000)
-        }
-    },[ tangleDataUpdates ])
 
     //Check data from user
     const content = (
@@ -57,23 +30,9 @@ const AppHeader = () => {
         </div>
     )
 
-    useEffect(()=>{
-        if(user.username == "") {
-            handleLogout()
-        }
-    },[])
-
     const handleLogout = () => {
-        deleteToken()
-        dispatch(setUsername(''))
-        dispatch(setToken(''))
-        dispatch(setEmail(''))
-        dispatch(setAddress(''))
-        dispatch(setBalance(0))
-        dispatch(setIncoming(0))
-        dispatch(setOutgoing(0))
-        dispatch(setDetailedTransaction([]))
-        navigate('/signin')
+        auth.signOut()
+        navigate('/')
     }
 
     const handleInternalScreen = () => {
@@ -102,7 +61,7 @@ const AppHeader = () => {
                     padding: '7px 40px',
                     color: '#555555'
                     }}>
-                    Balance {loading && <LoadingOutlined />}<br/>
+                    Balance <br/>
                     {tangleData.balance / 1000000} MIOTA (USD {(tangleData.balance*tangleData.price/1000000).toFixed(2)})
                 </Text>
             </div>
@@ -153,7 +112,7 @@ const AppHeader = () => {
             }
 
             <Tooltip title={content} placement="bottomRight" trigger="hover" color={'#555'} >
-                <img src="./assets/images/Foto.svg" style={{width: '50px' }} alt="logo cariota" />
+                <img src={user.photoURL ? user.photoURL : "./assets/images/Foto.svg"} style={{width: '50px', borderRadius: '50%' }} alt="logo cariota" />
             </Tooltip>
 
             <Button onClick={handleLogout} style={{

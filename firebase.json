@@ -10,10 +10,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [ {
-      "source": "**",
-      "destination": "/index.html"
-    } ]
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   },
   "emulators": {
     "functions": {
@@ -22,5 +24,8 @@
     "ui": {
       "enabled": false
     }
+  },
+  "functions": {
+    "source": "functions"
   }
 }

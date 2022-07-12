@@ -1,42 +1,63 @@
 import { message } from 'antd';
-import axios from 'axios'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-export const getToken = () => {
-    return window.localStorage.getItem('token')
-}
-
-export const http = axios.create({
-    //baseURL: 'http://localhost:5000/',
-    baseURL: 'https://api.cariota.org/',
-  });
-
-export const deleteToken = () => {
-    window.localStorage.removeItem('token')
-    delete http.defaults.headers.common['Authorization']
-}
-
-export const storeToken = (token: string) => {
-    window.localStorage.setItem('token', token)
-    http.defaults.headers.common['Authorization'] = `Bearer ${getToken()}`
-}
+import {db, auth } from './firebase'
 
 
 const localApi = {
     signin: (values: any) => {
-        const [email, password] = values
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        auth.signInWithEmailAndPassword(values.email, values.password)
         .then((userCredential) => {
-            // Signed in
             const user = userCredential.user;
-            // ...
         })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+        .catch((err) => {
+            message.error(err.message)
         });
+    },
+
+    signup: (values: any) => {
+        auth.createUserWithEmailAndPassword(values.email, values.password)
+            .then((userData) => {
+                userData.user?.updateProfile({
+                    displayName: values.username
+                })
+                if (userData.user) {
+                    db.collection('users').doc(userData.user.uid).set({
+                    username: values.username,
+                    email: values.email,
+                    photoURL: userData.user?.photoURL,
+                    })
+                        .then(() => {
+                        message.success("User create with success")
+                    })
+                }
+
+            })
+            .catch((err) => {
+                console.log(err.message)
+                message.error(err.message)
+        })
+
+    },
+
+    logout: () => {
+        auth.signOut()
+    },
+
+    balance: async ()=>{
+
+    },
+    userInfo: async () => {
+        return {username: '', email: '', address: '', token: '' }
+    },
+    detailedTransactions: async () => {
+
+    },
+    requestFaucets: () => {
+
+    },
+    send: (values: any) => {
+
     }
+
 }
 
 export default () => localApi
