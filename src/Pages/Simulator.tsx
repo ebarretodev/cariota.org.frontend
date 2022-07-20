@@ -21,10 +21,10 @@ const Simulator = () => {
   const [progression, setProgression] = useState(0);
 
   useEffect(()=>{
-    if(user.type){
+    if(user.type === true){
       navigate('/manual')
     }
-  }, [])
+  })
 
   useEffect(() => {
     unityContext.on("progress", function (progression) {

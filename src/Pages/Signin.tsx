@@ -1,6 +1,9 @@
+import { LoadingOutlined } from '@ant-design/icons';
 import { Form, Layout, Typography, Button, Input } from 'antd';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../helpers/firebase';
 import localApi from '../helpers/localApi';
 
 const { Content } = Layout;
@@ -9,9 +12,12 @@ const { Title } = Typography;
 const Signin = () => {
 	const navigate = useNavigate();
 	const api = localApi();
+	const [user, setUser] = useState<any | null>();
+	const [loading, setLoading] = useState(false);
 
 	const handleLogin = (values: any) => {
 		api.signin(values);
+		
 	};
 
 	return (
@@ -84,7 +90,7 @@ const Signin = () => {
 						}}
 					>
 						<Button type='primary' htmlType='submit'>
-							Login
+							Sign in {loading ? <LoadingOutlined /> : ''}
 						</Button>
 						<Button
 							type='default'

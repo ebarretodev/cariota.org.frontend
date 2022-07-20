@@ -16,12 +16,13 @@ const Card = ( props: CardProps ) => {
         <div style={{
             boxShadow: '0px 4px 12px 3px rgba(0, 0, 0, 0.32)',
             borderRadius: '5px',
-            marginTop: '30px',
+            marginTop: '20px',
+            marginBottom: '20px',
             marginRight: '8px',
             padding: '10px',
             textAlign: 'center',
             height: props.height,
-            width: props.width,
+            width: '90%',
          }}>
             <Title level={5} >{props.title}</Title>
             <div style={{

@@ -8,7 +8,7 @@ const slice = createSlice({
         address: '',
         token: '',
         photoURL: '',
-        type: ''
+        type: false
     },
     reducers: {
         setUsername: (state, action) => {

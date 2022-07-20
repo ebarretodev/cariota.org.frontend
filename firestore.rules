@@ -9,6 +9,9 @@ service cloud.firestore {
 
     match /transactions/{transactionId=**} {
     	allow read: if request.auth.uid == resource.data.toId || request.auth.uid == resource.data.fromId;
+      match /private/finances {
+        allow read: if false
+      }
     }
 
   }

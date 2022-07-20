@@ -7,26 +7,23 @@ import Home from './Pages/Home';
 import Layout from './components/common/internal/Layout';
 import Manual from './Pages/Manual';
 import Simulator from './Pages/Simulator';
-import {
-	Routes,
-	Route,
-	Navigate,
-	useNavigate,
-	useLocation,
-} from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import RequireAuth from './helpers/RequireAuth';
 import Signin from './Pages/Signin';
 import Signup from './Pages/Signup';
+import { useAppSelector } from './redux/hooks/useAppSelector';
 
 const App = () => {
 	const navigate = useNavigate();
-	let location = useLocation();
+	const userData = useAppSelector((state) => state.user);
+	const location = useLocation();
+	const [test, setTest] = useState(false);
 	const [user, setUser] = useState<any | null>();
 
 	useEffect(() => {
 		auth.onAuthStateChanged((userData) => {
-				setUser(userData);
-			})
+			setUser(userData);
+		});
 	}, []);
 
 	useEffect(() => {
@@ -57,8 +54,8 @@ const App = () => {
 					<Route path='/simulator' element={<Simulator />} />
 				</Route>
 			</Route>
-			<Route path='' element={<Navigate to='/' />} />
-			<Route path='*' element={<Navigate to='/' />} />
+			{/* <Route path='' element={<Navigate to='/' />} />
+			<Route path='*' element={<Navigate to='/' />} /> */}
 		</Routes>
 	);
 };

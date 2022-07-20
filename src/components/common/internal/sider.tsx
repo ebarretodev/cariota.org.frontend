@@ -1,6 +1,10 @@
 import Card from "./card";
 import { useAppSelector } from "../../../redux/hooks/useAppSelector";
-import { UpCircleTwoTone, DownCircleTwoTone } from "@ant-design/icons";
+import {
+	UpCircleTwoTone,
+	DownCircleTwoTone,
+	CloseCircleTwoTone,
+} from '@ant-design/icons';
 import { Typography, List, Divider } from "antd"
 import './sider.css'
 
@@ -37,8 +41,12 @@ const InternalSider = () => {
                         return (
 							<>
 								<a
-									href={`https://explorer.iota.org/devnet/message/${messageID}`}
-									target='_blank'
+									href={
+										messageID
+											? `https://explorer.iota.org/devnet/message/${messageID}`
+											: 'javascript:void(0);'
+									}
+									target={messageID ? '_blank' : ''}
 									rel='noreferrer'
 								>
 									<List.Item style={{ padding: 0 }}>
@@ -48,8 +56,8 @@ const InternalSider = () => {
 												alignItems: 'center',
 												justifyContent: 'space-between',
 												width: '100%',
-                                                fontSize: '12px',
-                                            }}
+												fontSize: '12px',
+											}}
 										>
 											<div style={{ textAlign: 'left' }}>
 												<b>
@@ -59,20 +67,41 @@ const InternalSider = () => {
 													<br />
 													Value:{' '}
 												</b>
-												{(value / 1000000).toFixed(0)}Mi (USD {(value * tangleData.price / 1000000).toFixed(2)})
+												{(value / 1000000).toFixed(0)}Mi
+												(USD{' '}
+												{(
+													(value * tangleData.price) /
+													1000000
+												).toFixed(2)}
+												)
 												<br />
 												<b>
 													Status:{' '}
-													{approvedTimestamp
-														? `Approved in ${
+													{approvedTimestamp < 0
+														? 'Transaction error'
+														: ''}
+													{!approvedTimestamp ||
+													approvedTimestamp == 0
+														? `Waiting Approval`
+														: ''}
+													{approvedTimestamp > 0
+														? `Approved in ${(
 																(approvedTimestamp -
 																	attachedTimestamp) /
 																1000
-														  }s`
-														: `Waiting Approval`}
+														  ).toFixed(0)}s`
+														: ''}
 												</b>
 											</div>
-											{fromId === user.token ? (
+											{approvedTimestamp < 0 ? (
+												<CloseCircleTwoTone
+													twoToneColor={'#AAA'}
+													style={{
+														height: '20px',
+														fontSize: '20px',
+													}}
+												/>
+											) : fromId === user.token ? (
 												<DownCircleTwoTone
 													twoToneColor={'#F44708'}
 													style={{

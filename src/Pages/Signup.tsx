@@ -1,6 +1,8 @@
 import { Form, Layout, Typography, Button, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import localApi from '../helpers/localApi';
+import { useState } from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -8,9 +10,16 @@ const { Title } = Typography;
 const Signup = () => {
 	const navigate = useNavigate();
 	const api = localApi();
+	const [loading, setLoading] = useState(false)
 
 	const handleLogin = (values: any) => {
 		api.signup(values);
+		setLoading(true)
+		setTimeout(() => {
+			navigate('/simulator')
+			setLoading(false)
+		}, 5000)
+
 	};
 
 	return (
@@ -95,7 +104,7 @@ const Signup = () => {
 						}}
 					>
 						<Button type='primary' htmlType='submit'>
-							Sign up
+							Sign up {loading ? <LoadingOutlined /> : ''}
 						</Button>
 						<Button
 							type='default'
