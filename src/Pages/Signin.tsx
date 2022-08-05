@@ -17,8 +17,12 @@ const Signin = () => {
 
 	const handleLogin = (values: any) => {
 		api.signin(values);
-		
+
 	};
+
+	const handleLoginAnonymously = () => {
+		api.loginAnonymously()
+	}
 
 	return (
 		<Content
@@ -38,7 +42,7 @@ const Signin = () => {
 					flexDirection: 'column',
 					justifyContent: 'center',
 					alignItems: 'center',
-					height: '500px',
+					height: '550px',
 					boxShadow: '0px 4px 12px 3px rgba(0, 0, 0, 0.32)',
 					borderRadius: '5px',
 					backgroundColor: 'white',
@@ -79,21 +83,29 @@ const Signin = () => {
 							},
 						]}
 					>
-						<Input placeholder='Password' type='password' />
+						<Input
+							placeholder='At least 6 characters'
+							type='password'
+						/>
 					</Form.Item>
 					<div
 						style={{
 							display: 'flex',
 							flexDirection: 'column',
-							height: '50%',
+							height: '40%',
 							justifyContent: 'space-between',
 						}}
 					>
-						<Button type='primary' htmlType='submit'>
+						<Button
+							style={{ marginBottom: '5px' }}
+							type='primary'
+							htmlType='submit'
+						>
 							Sign in {loading ? <LoadingOutlined /> : ''}
 						</Button>
 						<Button
 							type='default'
+							style={{ marginBottom: '5px' }}
 							onClick={() => {
 								navigate('/signup');
 							}}
@@ -101,7 +113,18 @@ const Signin = () => {
 							Sign up
 						</Button>
 						<Button
+							type='primary'
+							style={{
+								backgroundColor: '#000',
+								marginBottom: '5px',
+							}}
+							onClick={handleLoginAnonymously}
+						>
+							Log in Anonymously
+						</Button>
+						<Button
 							type='link'
+							style={{ marginBottom: '5px' }}
 							onClick={() => {
 								navigate('/');
 							}}

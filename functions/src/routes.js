@@ -10,6 +10,7 @@ router.get('/', (req, res)=>{
 })
 
 router.post('/iota/buy', IotaController.buy)
+router.post('/iota/balance', IotaController.balance)
 router.post('/iota/sendValue', IotaController.sendValue)
 router.post('/iota/createAccount', IotaController.createAccount)
 router.get('/test', IotaController.checkOp)

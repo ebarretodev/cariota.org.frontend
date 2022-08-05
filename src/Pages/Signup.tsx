@@ -93,7 +93,10 @@ const Signup = () => {
 							},
 						]}
 					>
-						<Input placeholder='Password' type='password' />
+						<Input
+							placeholder='At least 6 characters'
+							type='password'
+						/>
 					</Form.Item>
 					<div
 						style={{

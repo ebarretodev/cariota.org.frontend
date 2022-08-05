@@ -2,8 +2,8 @@ import { message } from 'antd';
 import {db, auth } from './firebase'
 import axios from 'axios';
 
-// const apiBaseURL = 'http://localhost:5001/cariota-b56d7/us-central1/main/api/v1'
-const apiBaseURL = 'https://cariota-b56d7.web.app/api/v1'
+
+const apiBaseURL =  process.env.REACT_APP_API_BASE_URL
 
 const localApi = {
     signin: (values: any) => {
@@ -14,6 +14,34 @@ const localApi = {
         .catch((err) => {
             message.error(err.message)
         });
+    },
+    loginAnonymously: () => {
+        auth.signInAnonymously()
+            .then((userData) => {
+                userData.user?.updateProfile({
+                    displayName: 'anonymous'
+                })
+                if (userData.user) {
+                    db.collection('users').doc(userData.user.uid).set({
+                        username: 'anonymous',
+                        email: 'none',
+                        photoURL: null,
+                        type: false
+                    }).then(() => {
+                        axios.post(`${apiBaseURL}/iota/createAccount`, {
+                            uid: userData.user?.uid
+                        }).then(res => {
+                            if (userData.user) {
+                                    localApi.requestFaucets(userData.user.uid, res.data.address)
+                                    message.success("User create with success")
+                                }
+                                })
+                    })
+                }
+            })
+            .catch((err) => {
+                message.error(err.message)
+            });
     },
 
     signup: (values: any) => {
@@ -88,6 +116,21 @@ const localApi = {
             message.error(err.message)
             message.error(err.response.data.error)
         })
+    },
+    sendFromAnonymousAccount: (values: any) => {
+        return axios.post(`${apiBaseURL}/iota/sendValue`, {
+            address: 'atoi1qpqv4yvfcdf53xx4mmufyp6h4ruxtny7hudaf7hw8ak4djq5f2tf7y3pkue',
+                    token: values.token,
+                    amount: values.amount,
+                    message: 'Anonymous account logout',
+        })
+            .then(() => {
+                return "ok"
+            })
+            .catch(err => {
+                    message.error(err.message)
+                    message.error(err.response.data.error)
+                })
     }
 
 }

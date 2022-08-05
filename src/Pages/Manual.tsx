@@ -1,6 +1,6 @@
 import { CopyFilled } from "@ant-design/icons";
 import { Button, Form, Input, InputNumber, message, Popconfirm, Tooltip, Typography } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../components/common/internal/card";
 import localApi from "../helpers/localApi";
 import { useAppSelector } from "../redux/hooks/useAppSelector";
@@ -12,7 +12,8 @@ const Manual = () => {
     const user = useAppSelector((state)=> state.user)
     const tangleData = useAppSelector((state)=> state.tangleData)
     const api = localApi()
-    const [form] = Form.useForm()
+	const [form] = Form.useForm()
+
 
     const handleCopyToClipboard = () => {
         navigator.clipboard?.writeText && navigator.clipboard.writeText(user.address);

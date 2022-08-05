@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import {
 	setAddress,
@@ -10,6 +10,7 @@ import {
 	setUsername,
 	setPhotoURL,
 	setType,
+	setIsAnonimous,
 } from '../redux/reducers/userReducer';
 
 import {
@@ -26,27 +27,29 @@ import { auth, db } from './firebase';
 import { useAppSelector } from '../redux/hooks/useAppSelector';
 
 const RequireAuth = () => {
-	const dispatch = useDispatch();
+	const dispatch = useDispatch()
+    const location = useLocation()
 	const navigate = useNavigate()
 	const [updatePriceBol, setUpdatePriceBol] = useState(false);
 	const [fromIdTransactions, setFromIdTransactions] = useState<any>([]);
 	const [toIdTransactions, setToIdTransactions] = useState<any>([]);
-	const [user, setUser] = useState<any | null>();
-	const userData = useAppSelector(state => state.user)
+	const [userData, setUserData] = useState<any | null>();
+	const [dataOk, setDataOk] = useState(false)
+	const user = useAppSelector(state => state.user)
 
 	useEffect(() => {
-		auth.onAuthStateChanged((userData) => {
-			setUser(userData);
+		auth.onAuthStateChanged((userState) => {
+			setUserData(userState);
 		});
 
 	}, []);
 
 	useEffect(() => {
-
 		db.collection('users')
 			.doc(auth.currentUser?.uid)
 			.onSnapshot((doc) => {
 				dispatch(setToken(auth.currentUser?.uid));
+				dispatch(setIsAnonimous(auth.currentUser?.isAnonymous));
 				if ( doc.data()?.username) {
 					dispatch(setUsername(doc.data()?.username));
 				}
@@ -55,6 +58,7 @@ const RequireAuth = () => {
 				}
 				if (doc.data()?.type) {
 					dispatch(setType(doc.data()?.type));
+					setDataOk(true)
 				}
 				if (doc.data()?.photoURL) {
 					dispatch(setPhotoURL(doc.data()?.photoURL));
@@ -65,7 +69,6 @@ const RequireAuth = () => {
 				if (doc.data()?.balance != null) {
 					dispatch(setBalance(doc.data()?.balance));
 				}
-
 			});
 	}, []);
 
@@ -80,6 +83,12 @@ const RequireAuth = () => {
 					);
 				});
 	}, []);
+
+	useEffect(() => {
+		if (user.type == true && dataOk == true) {
+			navigate('/manual');
+		}
+	}, [user.type, dataOk, location.pathname ]);
 
 	useEffect(() => {
 			db.collection('transactions')
@@ -102,8 +111,6 @@ const RequireAuth = () => {
 		let transactionsSorted = transactions.sort((a, b) => {
 			return b.attachedTimestamp - a.attachedTimestamp;
 		});
-		console.log(transactions);
-		console.log(transactionsSorted);
 		dispatch(
 			setDetailedTransaction(
 				transactionsSorted.map((a) => {

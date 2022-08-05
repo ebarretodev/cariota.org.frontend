@@ -309,6 +309,10 @@ body {
   min-height: 380px;
 }
 
+cardA :hover{
+  background-color: #525252;
+}
+
 .card-text {
   font-family: Roboto;
   font-style: normal;

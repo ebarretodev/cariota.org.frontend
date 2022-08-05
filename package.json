@@ -29,15 +29,19 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "deploy": "react-scripts build && firebase deploy",
+    "functions": "firebase emulators:start --only functions",
     "changeStyle": "lessc ./src/styles/main.less ./src/styles/css/antd.css --js"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": ["error"]
+    }
   },
   "browserslist": {
     "production": [

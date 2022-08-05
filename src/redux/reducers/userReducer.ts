@@ -8,7 +8,8 @@ const slice = createSlice({
         address: '',
         token: '',
         photoURL: '',
-        type: false
+        type: false,
+        isAnonimous: false
     },
     reducers: {
         setUsername: (state, action) => {
@@ -28,9 +29,21 @@ const slice = createSlice({
         },
         setType: (state, action) =>{
             state.type = action.payload
+        },
+        setIsAnonimous: (state, action) => {
+            state.type = action.payload
+        },
+        setBlankData: (state) => {
+            state.username = ''
+            state.email = ''
+            state.address = ''
+            state.token = ''
+            state.photoURL = ''
+            state.type = false
+            state.isAnonimous= false
         }
     }
 })
 
-export const {setUsername, setEmail, setAddress, setToken, setType, setPhotoURL} = slice.actions
+export const {setUsername, setEmail, setAddress, setToken, setType, setPhotoURL, setBlankData, setIsAnonimous} = slice.actions
 export default slice.reducer

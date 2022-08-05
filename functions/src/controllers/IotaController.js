@@ -105,11 +105,31 @@ module.exports = {
                 res.status(error.response.status).json({ error: (error.response.statusText) } )
             })
     },
-    updateBalance: async (req, res)=> {
-        const balance = getBalance(req.body.address)
+    balance: async (req, res) => {
+        if (!req.body.token) {
+            return res.status(400).json({error: 'Check token data'})
+        }
+
+        let userId = req.body.token
+        let userAddress = ''
+        let userBalance = ''
+
+        await db.collection('users').doc(userId).get().then((doc) => {
+            userAddress = doc.data().address
+            userBalance = doc.data().balance
+        })
+
+        let checkUserBalance = await getBalance(userAddress)
+
+        if (userBalance != checkUserBalance) {
+            await db.collection('users').doc(userId).update({
+                balance: checkUserBalance
+            })
+            userBalance = checkUserBalance
+        }
 
         res.status(200).json({
-            balance: balance
+            balance: userBalance
          })
     },
 

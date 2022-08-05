@@ -37,8 +37,27 @@ const slice = createSlice({
         setDetailedTransaction: (state,action) => {
             state.detailedTransactions = action.payload
         },
+        setBlankDataTangle: (state) => {
+            state.price= 0
+            state.balance= 0
+            state.incoming= 0
+            state.outgoing= 0
+            state.detailedTransactions= [
+                {
+                    "approvedTimestamp": 0,
+                    "attachedTimestamp": 0,
+                    "from": "",
+                    'fromId': "",
+                    'messageID': "",
+                    "text": '',
+                    "to": '',
+                    "toId": '',
+                    "value": 0
+                }
+            ]
+        }
     }
 })
 
-export const {setBalance, setIncoming, setOutgoing, setDetailedTransaction, setPrice} = slice.actions
+export const {setBalance, setIncoming, setOutgoing, setDetailedTransaction, setPrice,setBlankDataTangle} = slice.actions
 export default slice.reducer

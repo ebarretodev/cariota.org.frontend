@@ -31,6 +31,7 @@ const AppWhoWeAre = () => {
 								href={person.linkedin}
 								target='_blank'
 								rel='noreferrer'
+								className="cardA"
 							>
 								<div className='card'>
 									<img src={person.img} alt={person.name} />
