@@ -117,6 +117,8 @@ module.exports = {
         await db.collection('users').doc(userId).get().then((doc) => {
             userAddress = doc.data().address
             userBalance = doc.data().balance
+        }).catch(() => {
+            return res.status(400).json({ error: 'Check token data' })
         })
 
         let checkUserBalance = await getBalance(userAddress)
@@ -160,7 +162,10 @@ module.exports = {
                     userReceiveName = doc.data().username
                     userReceiveUid = doc.id
                     })
-                })
+            }).catch(() => {
+                return res.status(400).json({ error: 'Destination user doesn\'t exits' })
+            })
+
 
         await db.collection('users')
             .doc(req.body.token)
@@ -168,13 +173,15 @@ module.exports = {
             .then((doc) => {
                 userSendName = doc.data().username
                 userSendAddress = doc.data().address
+            }).catch(() => {
+                return res.status(401).json({ error: 'Not authorized transaction.' })
             })
 
         userSendBalance = await getBalance(userSendAddress)
         userReceiveBalance = await getBalance(userReceiveAddress)
 
         if (userSendBalance < req.body.amount) {
-            return res.status(401).json({message: 'No funds enough to this transaction'})
+            return res.status(400).json({error: 'No funds enough to this transaction'})
         }
 
         let attachedTimestamp = (Date.now()).toFixed(0)

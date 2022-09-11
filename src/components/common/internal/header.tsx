@@ -1,4 +1,4 @@
-import { Button, Typography, Tooltip } from 'antd'
+import { Button, Typography, Tooltip, message } from 'antd'
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector } from '../../../redux/hooks/useAppSelector';
 import { auth, db } from '../../../helpers/firebase';
@@ -18,7 +18,12 @@ const AppHeader = () => {
     const tangleData = useAppSelector((state) => state.tangleData)
     const user = useAppSelector((state) => state.user)
     const dispatch = useDispatch()
-    const api = localApi()
+	const api = localApi()
+
+	const handleCopyToClipboard = () => {
+		navigator.clipboard?.writeText && navigator.clipboard.writeText(user.token);
+		message.info('Token copied it to clipboard')
+    }
 
 
 
@@ -34,6 +39,13 @@ const AppHeader = () => {
                     rel="noreferrer"
                     >
                     address: {`${user.address.slice(0, 20)}...`}
+                </a>
+			</Text><br />
+			<Text style={{ color: 'white' }}>
+                <a
+                    onClick={handleCopyToClipboard}
+                    >
+                    token: {`${user.token.slice(0, 20)}...`}
                 </a>
             </Text><br />
         </div>

@@ -1,12 +1,23 @@
-Version 0.3 (actual version running on https://cariota.org/ )
+![N|Solid](https://www.cariota.org/CariotaLogoCorreto.svg)
+# CARIOTA.ORG
+![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+## Summary
+1. [Current Version](#current-version-and-updates)
+2. [Introduction to concept](#introduction-to-concept)
+3. [How to use this project as external API](/Documentation/API/README.md)
+4. [How to copy this project included Unity models](/Documentation/CopySimulator/README.md)
+
+## Current version and updates
+
+- Frontend: Version 0.3 (running on https://cariota.org/ )
+- Backend: Version 1.3 (running on https://cariota.org/api/v1/)
 
 This version use firebase as backend.
-Under deployment
 
-This new version can be access on https://cariota.web.app/
+On this version was added the following functions:
+- Balance and transacions tracked by firebase, which became low operations on client side
+- Login system with more security using Accounts to login.
+- Documentation for how to use our API
+- Functions from Google Cloud to improve performance on tangle.
 
-On this version will upgrade:
-1. Balance and transacions tracked by firebase, which became low operations on Front side
-2. Login system with more security using Accounts to login.
-3. Documentation for how to use our API
-4. Functions from Google Cloud uses documentation for access API now on https://cariota.org/api/v1. More info can be access functions folder.
+## Introduction to concept
