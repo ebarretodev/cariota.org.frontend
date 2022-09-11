@@ -21,3 +21,14 @@ On this version was added the following functions:
 - Functions from Google Cloud to improve performance on tangle.
 
 ## Introduction to concept
+![N|Solid](/Documentation/images/CarWifi.png)
+
+CarIOTA is a virtual interactive ecosystem with the concept vehicle-as-economic-agent. It reduces the painful and cost-intensive struggle of assessing mobility solutions and business models by taking tests and pilots to the virtual world, making use of the IOTA Tangle technology.
+
+CarIOTA’s goal is to explore the possibilities of interactions among vehicles and smart-city use-cases, with none or minimal human interference.
+
+Use-case example: vehicle receives money for automatically reporting potholes on the street to the municipality. If you have to commute anyway, why not have your vehicle earning you money? It enables monetization of mobility data without the need of changing driving patterns.
+
+![N|Solid](/Documentation/images/CarExchange.png)
+
+As the mobile phone can be seen as a personal data-collector platform that provides telco services, a vehicle can be seen as a personal/collective data-collector platform that provides mobility services. CarIOTA unlocks the vehicle potential of creating value beyond mobility, as your mobile phone does way more than only calls.

@@ -43,13 +43,11 @@ After, open up the project using the Unity software. For perfect use you must se
 ```sh
 ~\Assets\Scripts\Scene1\GameConnectionsController.cs
 ...
-
 // RestAPI requests
     // Uncoment the following line for access the local API server
     // private const string API_SITE = "YOUR_LOCAL_API_SERVER";
     // Uncoment the following line for access the remote API server
     private const string API_SITE = "YOUR_API_URL_SERVER";
-
 ...
 ```
 
@@ -60,6 +58,8 @@ On menu *File>Buil and Run* select (1)WebGL and click on button (2) Build:
 ![N|Solid](../images/UnityBuild.png)
 
 After the build, files will be save on directory *~/cariota.org.simulator/build/Build*
+
+
 ![N|Solid](../images/UnityBuildFiles.png)
 
 Copy this files and past on the directory *~/cariota.org.simulator/public/build/*
